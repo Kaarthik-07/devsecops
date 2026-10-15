@@ -1,0 +1,79 @@
+day 4
+-----
+
+Git and Git Bash
+
+git switch -c {branchName}					= switches from one branch to another
+git status							= shows all untracked files
+git add .							= adds all files to be pushed/committed. these files get stored in the system's local repository. local repo created by git 								  init command, at the start
+git commit -m "Message"						= pushes files marked for push/commit from local repo to GitHub repo
+
+git config --global user.name "name"
+git config --global user.email "email"
+git remote add origin 
+
+
+----
+
+DOCKER
+
+dockerfile	 						= src code + steps and instructions to describe what we have in hand. plain text.
+docker img							= a read-only snapshot containing the app code, libraries and dependencies. immutable, stored as a binary package in docker. created 							  through docker build. 
+docker container						= a living instance of the application, running in an environment. created and started via docker run
+
+dockerfile -> [docker build] -> docker image -> [docker run] -> docker container
+
+docker engine:
+docker daemon 							= runs in the background
+docker client							= CLI 
+docker REST API							= enables communication between client and daemon
+
+docker run -itd --name apachecontainer -p "8060:80 httpd 	= create new docker container, through interactive terminal detachable, name specified, port 8080, 
+
+docker ps (or) docker container -ls				= list all running containers
+docker ps -a							= list all containers, irrespective of status
+docker rm {containerId}						= delete the specified container
+
+docker exec -it {containerId} 					= enter the container we created
+docker exec -it {containerId} /bin/bash/			= access the bash terminal inside the container. it redirects from root@ip-[IP addr] to root@[containerId]
+
+docker top {containerId}					= shows first 5 processes running inside the docker container
+docker stats {conatainerId}					= shows the resource utilization of the container
+docker inspect {containderId}					= provides a detailed and comprehensive overview of the container. most detailed report of the container selected.
+
+docker info 							= provides overall details about docker itself, not to be confused with docker inspect {containerId}
+
+-----
+
+writing a dockerfile:
+
+FROM 								= Base image of container
+LABEL/MAINTAINER						= contains metadata info, about person creating dockerfile (email addr)
+ENV								= set up environment variables
+RUN 								= run commands as image is building
+CMD 								= run commands within the container
+EXPOSE								= tells which port number the container runs in
+USER 								= which user can run the container
+COPY								= copy files from host machine to container
+APP								= similar to copy. but automatically extracts files (tar files can be extracted while added)
+
+-----
+
+mkdir dev
+cd dev
+vi Dockerfile
+docker build -t myimage . 					= name of image - myimage; the "." specifies "current location"
+
+to edit the existing image, we edit the dockerfile
+
+```
+
+FROM myimage
+MAINTAINER user
+RUN ["apt-get", "install", "-y", "git"]
+
+```
+
+docker build -t myimage . 					= rebuild the image
+
+to make changes to the container				= force stop the container, remove, create the container again using exec -it

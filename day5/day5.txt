@@ -1,0 +1,20 @@
+Monitoring -> we can check metrics of the system like storage,cpu usage etc..
+
+humans cant monitor 24/7 so that company use tools to monitor 24/7 without any deviation 
+
+logging -> recording every events that happending inside an app / system .. mostly used for auditing purpose
+
+observablity -> monitor + logging .. we can understand the state of the system by analyse the info it produces
+
+SNS-> simple notification service(one to many communincation)
+publisher <topic> subscriber
+topic can hold -> 1. replication msg , 2. msg format for each subscriber can change automatically or configure it
+
+SQS-> simple queueing service
+sender<queue>receiver
+
+
+SES-> simple email service
+
+DLQ->Dead Letter Queue.. if the user isnt active or some state where u can trigger the msg and that state isnt available at the period of time we have a period or if the msg have failed for too many attempts.. to preveent msg loss we can push to DLQ for reprocessing that msg
+
