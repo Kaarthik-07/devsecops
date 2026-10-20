@@ -1,0 +1,79 @@
+production readiness
+
+checklist -> 
+[]Application(frontend)
+[]Backend
+[]Network -> did we open requierd port numberes,, is it secured Network
+[]Security ->
+[]performance->dummy loads to check the response .. is it any lag or slower response(metrics :responseTime,throuhput:in this second how may req i processed on a given time period
+cpu:% of cpu capacity being used,memeory:amount of RAM being used,errorRate:% of reqeuest that failed)
+[]reliability->
+[]backup
+[]monitoring
+[]cost
+[]documentation
+
+scalability: ability of an app/infra to handle increasing workload by adding or decreasing workloads by deleting
+
+vertical->increasing existing resources
+horizontal->adding new resources
+backup & recovery -> 
+* App configuration files
+* Databases
+* Important uploaded files
+* Infra configuration
+* Customer Data
+
+recovery measurements -- RTO(recovery Time Objective [how long recovery takes]) -- RPO(recovery point Objective[how much data canwe afford to loss] max 15 minutes we have to recover aand active)
+
+Resource cleanup -> identify & remove the resources that are no longer required,,ruuning a lambda on the server  or resources that needs to be cleanup as an example
+
+Cost Optimization - Reducing unnecessary cloud expenditure
+Choose right size of cloud resources, only for what you need.
+Stop resources when not in use
+Delete unused storages
+Manage Snapshots
+Monitor Billing
+Budgets and costs
+
+Infra -> server , Network , storages,Aplication configuration,Network policy(practive best principles to make our infra in secured way) 
+
+* Restrict your network access
+* Secure credentials and secrets
+* Keep softwared updated ( dont use old package,setups)
+* Mandatory to monitor and health of your resources
+* use least priviledge
+
+
+lsb_release -a(info abt the os nd versoin)
+
+df -h(disk space left)
+free -h(memeort left and used)
+
+sudo journalctl -u nginx -n 50(logs )
+
+nproc(to check how many cpus do u haave)
+
+sudo systemctl is-active nginx ->active
+
+sudo ss -lntp | grep ':80'
+
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost
+
+uptime
+
+sudo ls -lh -lib /var/log/nginx/
+
+sed(search and display or repalce) -i -> avoid case sensitive
+s->search for the file, and u can login as root user
+'s/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+docker run -itd --name sshcontainer -p "2323:22" sshimage:v1.0
+
+dokcer inspect for overall infos
+
+docker network -> bridge(default) if u didint specify network info while creating container, host->host machine network , none/null
+
+docker network create --driver bridge akshiv_net
+
+dokcer run -itd --name A1 --network akshiv_net alpine
