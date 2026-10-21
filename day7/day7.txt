@@ -1,0 +1,28 @@
+CI(continuous integration)/CD(continuous Deployment/Delivery) -> Automate the flow (Build Test,Review,security,deploy,scan) when every time the code changes
+
+CI (build &  test )-> check code quality 
+
+CI stages
+
+* source code change
+* Build stage(****)
+* unit test stage(small piece of the code)[automate one]
+* code quality/security checks(SCA(static code analyis),Vulnerability scans,Style & lint checks) will check bad practices before tge production of code
+* artificat creation & storage(build opt will be stored in here)
+
+--------------------CI ENDS HERE--------------------------------
+
+CD stages
+
+code applied on production / preparing them for releases 
+CD(Delivery ) -> manual deploy someone has to verify and release
+CD (Deployment) -> automate deploy
+production ready stage
+
+10 linux cmd
+jenkins installation
+jobs creation orderening scheduling jobs
+github jenkins genrerations
+
+docker run -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins
+sudo exec -it -u root(for root user)
