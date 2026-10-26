@@ -1,0 +1,39 @@
+Infa ENVS -> dev,stage,test,prod
+
+Rollback -> process of previouslt working app/version
+
+Deployment Statergies
+1. Recreate Deployment -> stop the old version first then deploy the new version
+
+2. Rolling Deployments
+* Replave the old app instance with new instance gradually
+
+but 
+s1 - v1.0 / v1.1
+s2 - v1.0 / v1.1
+s3 -  v1.0 / v1.1
+
+3. Blue-green Deployment
+
+maintain 2 seperate ENVS 
+* current version of instance
+* update version of instance
+
+blue env              url                         green
+                    ---------- > (sync)
+                    domain swap
+
+just do a domain a swap of new veresion form whatsapp.com to whatsapp1.com if any errors na swap the domain millisecond process
+
+
+4. Canary Deployment -> Release the new version to small percentage of users if it wokrs crtly then well gradually increase to other users
+
+Infrastructure automation -> process of using scripts to create or manage or update or delete your infra auomatically no more manual perform actions(config,env variables everythingg)
+
+Terraform(automation infra)-> 7000+supported easily connect with any providers(AWS,AZURE,GCP,IBM) even we can create infra from ansible
+
+Terraform outdorr building ansible is like interrior design(Ex)
+
+cloudformation AWS(JSON & YML)
+
+

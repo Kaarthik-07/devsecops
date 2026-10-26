@@ -1,0 +1,9 @@
+product_id,product_name,category,supplier_id,cost_price,unit_price,stock_qty,reorder_level
+P101,Wireless Mouse,Accessories,SUP01,380.0,650.0,42,10
+P102,Mechanical Keyboard,Accessories,SUP02,1650.0,2400.0,8,12
+P103,USB-C Hub,Connectivity,SUP03,760.0,1250.0,19,8
+P104,Laptop Stand,Workspace,SUP01,520.0,950.0,25,10
+P105,Webcam,Electronics,SUP04,2250.0,3200.0,6,8
+P106,Noise-Cancelling Headphones,Audio,SUP05,3900.0,5400.0,11,5
+P107,Portable SSD,Storage,SUP03,3100.0,4100.0,14,6
+P108,Monitor Light Bar,Workspace,SUP02,1120.0,1800.0,9,10

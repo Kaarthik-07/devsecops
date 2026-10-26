@@ -1,0 +1,6 @@
+product_id,product,category,units_sold,total_revenue,average_price,number_of_sales,cost_price,stock_qty,reorder_level,estimated_cost_of_units_sold,estimated_gross_profit,stock_status
+P107,Portable SSD,Storage,2,8200.0,4100.0,1,3100.0,14,6,6200.0,2000.0,Stock above reorder level
+P102,Mechanical Keyboard,Accessories,3,6696.0,2400.0,2,1650.0,8,12,4950.0,1746.0,Reorder stock
+P106,Noise-Cancelling Headphones,Audio,1,4752.0,5400.0,1,3900.0,11,5,3900.0,852.0,Stock above reorder level
+P101,Wireless Mouse,Accessories,6,3770.0,650.0,2,380.0,42,10,2280.0,1490.0,Stock above reorder level
+P103,USB-C Hub,Connectivity,3,3375.0,1250.0,1,760.0,19,8,2280.0,1095.0,Stock above reorder level
