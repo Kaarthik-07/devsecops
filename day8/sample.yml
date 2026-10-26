@@ -1,0 +1,64 @@
+# - hosts: all
+#   remote_user: ec2-user
+#   become: yes
+#   tasks:
+#     - name: Install apache
+#       yum:
+#         name: httpd
+#         state: present
+#     - name: start apache service
+#       service:
+#         name: httpd
+#         state: started
+#
+#     - name: copy index.html to web server
+#       copy:
+#         src: ./index.html
+#         dest: /var/www/html/index.html
+#         mode: '0777'
+
+- hosts: all
+  remote_user: ec2-user
+  become: yes
+
+  tasks:
+    - name: Install packages on RedHat machines
+      yum:
+        name: '{{ item }}'
+        state: present
+      loop:
+        - wget
+        - git
+        - vim
+        - nginx
+      when: ansible_os_family == "RedHat"
+
+    - name: Install packages on Debian or Ubuntu machines
+      apt:
+        name: '{{ item }}'
+        state: present
+        update_cache: yes
+      loop:
+        - wget
+        - git
+        - vim
+        - nginx
+      when: ansible_os_family == "Debian"
+
+    - name: Install packages on SUSE machines
+      zypper:
+        name: '{{ item }}'
+        state: present
+      loop:
+        - wget
+        - git
+        - vim
+        - nginx
+      when: ansible_os_family == "Suse"
+
+    - name: Copy index.html to web server
+      copy:
+        src: ./index.html
+        dest: /var/www/html/index.html
+        mode: '0777'
+  # ansible-playbook -i slaves.txt second.yml

@@ -1,0 +1,80 @@
+github actions
+
+dont need to manage server like jenkins instead github actions gives everything in built u just write a yaml file ill taker care of the rest
+
+Event/Trigger -< wgat actually starts the workflow(codepush,PR,schedules)
+
+Job -> A group of steps this run together on the same machine
+
+step -> style task inside the job
+
+Runner -> A virtual machine(default(ubuntu),windows,mac) -< this will execute tge workflow
+
+Secret -> Sensitive data storage
+--------------------------------
+after everything have been ran successfully we have to validate the deployment the servier is live and app is live but the endpoint of something is working as expected 
+
+HTTP response -> does the app resond to the request
+
+API functionality 0> Does the api return the result
+
+availbility -> can use access the ui
+
+application logs -> are there are any errors
+
+Server connectiveity -> can the frontend read the headers
+---------------------------------------
+
+deployment troubleshooting -> process of identify and dixing problems that occurs during or after deployment
+
+app does not start -> invaid config on startup error
+
+connection refused -> server is stopped or port is int mapped
+
+HTTP 404 -> invlaid url / endpoint
+
+HTTP 500 -> app server error
+
+HTTP 502 -> nginx cant reach backend server
+
+Frontend loads but API fails -> incoorect api url or proxy config
+old version still appears -> because of old image or cache whihc is present in frontend files
+--------------------------------------
+
+Ansible(redhat prod(2014) python lang i =t is mandatory to have htis on every machine that we r installing) -> configuration management
+chef/puppet- > they r agent based
+it is an agenteless service 
+
+master as control node
+slave as managed node
+
+push mechanism
+
+Inventory file -> private ip address of your slaves machine
+
+configuration file -> ansible running informations / configuration details
+
+install = present / latest
+uninstall = absend
+start = started
+stop = stopped
+restart = restarted
+
+ansible apache(grp name in slaves.txt) -i slaves.txt -m yum -a "name=httpd state=present"
+Adoc command - one task at a time
+
+ansible-playbook -i slave.txt first.yml --syntax-check (check syntax)
+
+-------------------------------------------------------------------
+
+deployment verifications
+
+deployment is met complete just because the app process
+
+process pf checking whether a deploted verifications is working as expected
+
+is the server reachable?
+is nginx running?
+is spriboot working?
+does the api work?
+api connection btw frontend nd backend
