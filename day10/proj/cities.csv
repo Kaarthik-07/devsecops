@@ -1,0 +1,6 @@
+city,state,region,population_millions,delivery_fee,delivery_days
+Chennai,Tamil Nadu,South,11.2,60.0,1
+Bengaluru,Karnataka,South,13.6,70.0,2
+Hyderabad,Telangana,South,10.8,55.0,2
+Pune,Maharashtra,West,7.4,65.0,2
+Mumbai,Maharashtra,West,21.7,80.0,2

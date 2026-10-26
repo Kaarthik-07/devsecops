@@ -1,0 +1,6 @@
+supplier_id,supplier_name,country,lead_time_days,quality_rating,contact_email
+SUP01,Aster Components,India,4,4.6,orders@aster.example
+SUP02,BluePeak Tech,India,6,4.2,sales@bluepeak.example
+SUP03,CoreLink Distribution,Singapore,8,4.4,supply@corelink.example
+SUP04,Delta Imaging,India,5,3.9,support@deltaimaging.example
+SUP05,Echo Audio Systems,Malaysia,9,4.7,partners@echoaudio.example

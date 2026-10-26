@@ -1,0 +1,244 @@
+Raw Data (.csv,original file) -> Data Loading(pandas) -> Data Exploration(structure and content of data,columns, rows,data types,  missing values)-> Data Cleaning(identify missing , correcting, handling data quality issues)-> Data Analysis(calculation statisitcs)->Insights(Interpreting the results)-> Business Decisions(finalysing to make decisions) 
+
+ 
+
+ 
+
+4 Important analysis type 
+
+Descriptive Analysis -> what happened? 
+
+Diagnostic Analysis -> why did it happened? 
+
+Predictive Analysis -> what might happen next? 
+
+Prescriptive Analysis -> what should we do? 
+
+ 
+
+Python 
+
+High level programming language  
+
+Data analysis -> straightforward syntax -> libraries for data processing 
+
+Numpy-> efficient numerical calculation 
+
+Pandas-> working with structured data such as tables 
+
+Matplotlib-> creating charts and visualization 
+
+Jupyterlab-> running code interactively in notebook documents 
+
+Numpy array 
+
+Data structure that stores multiple values in organized format 
+
+ 
+
+Vectorized operation applied to mutliple array element without explicitely writing a python loop for each eleement 
+
+Create an array - np.array() 
+
+List array 
+
+Calculate sum - np.sum() 
+
+Calculate mean- np.mean() 
+
+Calculate multiply- array * 2 
+
+Calculate min, max- np.min(), np.max() 
+
+Diff/ sub- np.subtract() 
+
+Array shape =np.shape 
+
+Number of dimensions = np.ndim 
+
+Number of elements= np.size 
+
+Select elements using a condition  print(numbers[numbers>25]) 
+
+ 
+
+Pandas 
+
+Inbuilt python library used to load, organize , explore , manipulate and analyze structured data 
+
+Particularly useful for data stored as tables 
+
+Series  
+
+One dimentional labelled  
+
+Style columns of data with an exp associated index 
+
+Import pandas as pd 
+
+To convert > pd.series([]) 
+
+Operation in single column of data -> why it is usefull 
+
+Sales.sum() 
+
+Sales.mean() 
+
+Dataframes 
+
+Two dimentional labelled data. Structure consisting of rows and columns 
+
+data = { "product" = ["..",".."],"quantity=[''",""]} 
+
+To convert to a dataframe = pd.Dataframe(data) 
+
+df["Revenue"] = df["Price"] * df["Quantity"] 
+
+print(df) 
+
+importing and exporting datasets 
+
+csv => tabular data separated by delimiter usually commas 
+
+excel => spreadsheet data containing worksheets 
+
+json=> structured data represented using object and arrays 
+
+parquet(.parquet) => colum oriented storage commonly used in DE and analaysis 
+
+ 
+
+Data Exploration 
+
+Process of examining a dataset to understand its strcuture, contents , quality, and important characteristics 
+
+display the first 5 rows : df.head(5) 
+
+last 5 rows : df.tail(5) 
+
+df.shape => datatset dimension 
+
+df.columns=> to see the column names  
+
+inspect data types-> df.info() 
+
+generate descriptive statistics(std, mean,min)=> df.describe() 
+
+to see the missing attributes => df.isnull() 
+
+count distinct values => df.nunique()  
+
+identify duplicate rows==>df.duplicated() 
+
+column to numpy arr=> df["column"].to_numpy() 
+
+ 
+
+LAB 
+
+Create a directory and venv environment 
+
+python -m venv .venv 
+
+./.venv/Scripts/Activate => for command prompt 
+
+python -m pip install --upgrade pip 
+
+install jupyterlab, pandas, numpy 
+
+python -c "import numpy, pandas; print('Numpy:',numpy.__version__); print('Pandas',pandas.__version__)" 
+
+Get-Content <path> 
+
+download any external data 
+
+jupyter lab=> opens the jupyter lab in the browser 
+
+create a notebook in jupterlab 
+
+to read a csv file => pd.read_csv("file.csv")=> it creates a dataframe 
+
+create a numpy array and display(any data items) 
+
+inspect the arrray => ndim, shape, size 
+
+sum, mean, max, min=> execute in the array 
+
+increase the values by 10%=> array*1.10 
+
+filter values greater than 2000  
+
+ 
+
+dataframe lab(do all dataframe comments above) 
+
+create a two dimentional array np.array([]) 
+
+check shape and ndim 
+
+sum of each row => np.sum(array, axis=1) 
+
+df.describe(include="all")=> to include all column even non numerical 
+
+df.isnull().sum() 
+
+selecting particular columns df[["col1","col2"]] 
+
+df[df["Quantity"]>3] => rows with quantity greater than 3  
+
+df[df["col1"]=="value"] 
+
+df[ (df["col1"]=="value1") & (df["col2"]>=value)] (try with different conditions) 
+
+df["col1"].sum()  
+
+df["col1"].mean() 
+
+var = df.groupby("col1")["col2"].sum() 
+
+var.sort_values(ascending=false) 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Tasks 
+
+10 Linux comments 
+
+5 different products -> answer all the above questions=> individual 
+
+Scenario based=> group 
+
+2 different values -> with and without numpy=> group 
+
+all commands we executed 
+
++ 
+
+mandatory things 
+
+import libraries 
+
+create numpy arrays  
+
+total, avg, max, min, daily wise an output 
+
+head, tail, shape, ndim, columns, info, describe, isnull, duplicates 
+
+for any column , create the statistics  
+
+filtering (groupby, sorting) 
+
+
+import library
+import np arr(tot,avg,min,max,dailyRevenue/ssales)
+csv dataset (head,tail,shape,size,columns,info,describe,isnull,duplicate) -> explore these (one column)
+create one column and show the statistics
+filter- > revenue by product/city/category
+
+

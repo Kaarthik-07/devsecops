@@ -1,0 +1,6 @@
+product_id,product,category,units_sold,total_revenue,average_price,number_of_sales
+P107,Portable SSD,Storage,2,8200.0,4100.0,1
+P102,Mechanical Keyboard,Accessories,3,6696.0,2400.0,2
+P106,Noise-Cancelling Headphones,Audio,1,4752.0,5400.0,1
+P101,Wireless Mouse,Accessories,6,3770.0,650.0,2
+P103,USB-C Hub,Connectivity,3,3375.0,1250.0,1
