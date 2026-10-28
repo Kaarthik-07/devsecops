@@ -1,0 +1,106 @@
+Data modeling: plan of how a data will be organized
+customer - places -what order - what it contains - order items - refers to the product -> each item will be called as entitiy->(okace ,thing,event that the business needs to trade)
+
+structured ->rules on priror to the table creation,sql,mariadb ...
+semi structured -> u do have rules but flexible..recreate and adjust, nosql
+unstructured -> datawarehouse
+
+
+RDS -> entitiy falls under table format but when it comes to data modeling there are 3 useful level for a data model
+
+Level 1 -> conceptual : it denotes the main business thing & how they relate from business point of view .. like customer and the product info nd whatever they r doing in our app
+
+Level 2 -> logical : the info each thing needs .. u cant have characters stored in the numeric column that level of validation
+
+Level 3 -> physical : how the databasedd storing the information(schema kinda of)
+
+
+                                                        these two are common way of using data
+
+OLTP                                                    |                                       OLAP
+
+Online transaction processing                           |                            online analysing processing
+
+supports everday business                               |                           support question about patterns and totals
+- recording the purchase                                                            which product sold most the quarter       
+- update the wallet
+
+Run daily operations                                    |                            Analyse business activites
+
+individual customer Data                                |                            summarize data acronns many transactions
+
+
+
+Relational data: going to store data in tables,..and those table using store values
+Table:
+Rows -> individual records
+columns -> details about each recored
+data types -> what kind of value a column can hold
+
+relation is all about store each value based on that act:
+
+1 - 1 -> 1 emp 1 sal acc
+
+1 - M -> one customer placed many orders
+
+M - M -> customer purchased many product, that product purchased bt many product
+
+EDA -< Exporactory Data analysis: process of examing data to understand what it contains & what it may be telling us
+
+EDA find eveidence as well as to form better questions
+
+* the finding -> it tells us the what the analysis showed
+
+* the eveidence -> which calculcation / chart supports it
+
+* interpretation -> what might it when for the business
+
+* the limitation -> what cant be concluded from this data
+
+* the most question -> what should the team investigate
+
+EDA Workflow
+
+1 understand the business question
+2 understand what one row represent
+3 inspect structure and qulaity(like checking value,dup records,clm_names,)
+4 summarize & compare(old report vs current report)
+5 explore relationship & time patterns
+6 communicate the findings
+
+revenue -< mpstly quaterly based
+
+Descriptive staistics: summarize the data using a small set of values
+1 measure & count -> no of avilabel values(how many prod or order takes placed tdy?)
+2 arithemetic average -> average revenue of an order
+3 median -> middle value after sorting
+4 min max -> small / biggest value
+5 std -> how spread values are around the average
+6 quantiles -> cut points that divided values into 4 groups
+
+DA checks
+* are any values missing
+* are dates stored as dates
+* are values makes sense for the business
+* are duplicates rows present?
+
+grouping -> clustering similar data into batch -> record based one their cateogry
+aggregation -> calculcate a summary for each group(sum,mean,median,min,max,count)
+
+Correlations analysis -> is a number that describes that desc' strength of a straight line relationships btw tow columsn
+
+close to +1 -> the value tend to increase together
+close to 0 -> little straight line visibile relationship
+close to -1 -> when one value rised the other tends to fall
+
+Identify                                    trends                                  patterns                        ananmolies
+
+trend -> general direction of change overtime (ex: revenue rishing over several months,order counts deciding over several weeks)
+pattern -> something occurs across particular cateogry like particular region(a product sellong more in one region,a channel having higher average order value)(distribution channel)
+ananmolies/abnormal -> is a record or value that is noticablly different from others (ex: a revenue value mich larger than the most order, a date fpr outside the expected period,A product recoreded with an unexpected period) A (-)ve cant where (-) values are not expected
+
+Data visualiztion -> turn the data into a calculcation into a form that is easier to scan or discuss
+highly recommened -> bar chart(compare categories)
+line chart -> showing change overtime
+histogram -> showing a numerical distribution
+scatter plot -> explore 2 numerical measure

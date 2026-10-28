@@ -1,0 +1,11 @@
+order_id,date,product_id,product,category,city,quantity,unit_price,discount_pct,payment_method
+ORD1001,2026-01-03,P101,Wireless Mouse,Accessories,Chennai,2,650.0,0.0,UPI
+ORD1002,2026-01-04,P102,Mechanical Keyboard,Accessories,Bengaluru,1,2400.0,5.0,Card
+ORD1003,2026-01-05,P103,USB-C Hub,Connectivity,Hyderabad,3,1250.0,10.0,UPI
+ORD1004,2026-01-06,P104,Laptop Stand,Workspace,Chennai,2,950.0,0.0,Cash
+ORD1005,2026-01-07,P105,Webcam,Electronics,Pune,1,3200.0,,Card
+ORD1006,2026-01-08,P101,Wireless Mouse,Accessories,Mumbai,4,650.0,5.0,UPI
+ORD1007,2026-01-09,P106,Noise-Cancelling Headphones,Audio,Bengaluru,1,5400.0,12.0,Card
+ORD1008,2026-01-10,P107,Portable SSD,Storage,Hyderabad,2,4100.0,0.0,UPI
+ORD1009,2026-01-11,P102,Mechanical Keyboard,Accessories,Pune,2,2400.0,8.0,
+ORD1004,2026-01-06,P104,Laptop Stand,Workspace,Chennai,2,950.0,0.0,Cash

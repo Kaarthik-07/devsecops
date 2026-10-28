@@ -1,0 +1,15 @@
+OrderID,Product,City,Quantity,UnitPrice,OrderDate
+O1001, Laptop ,Chennai,2,50000,2026-10-01
+O1002,Mouse,chennai,5,500,2026-10-02
+O1003,Keyboard,CHENNAI,3,1200,2026-10-03
+O1004,Monitor,Bengaluru,2,8500,2026-10-04
+O1005,Laptop,Chennai,,52000,2026-10-05
+O1006,Mouse,Hyderabad,4,500,2026-10-06
+O1007,Keyboard,Bengaluru,2,1200,2026-10-07
+O1008,Monitor,chennai,3,8500,2026-10-08
+O1008,Monitor,chennai,3,8500,2026-10-08
+O1010, Laptop,Hyderabad,2,50000,not-a-date
+O1011,Headphones,Bengaluru,two,2500,2026-10-11
+O1012,Webcam,,4,1800,2026-10-12
+O1013,Desk,Chennai,1,999999,2026-10-13
+O1014,Chair,Hyderabad,3,6500,2026-10-14
