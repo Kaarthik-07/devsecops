@@ -1,0 +1,184 @@
+Data cleaning -> process of identifying & correcting problem in a dataset to make the data suitable for analysis
+
+Data preprocessing -> prepare your data for analysis and missing data
+includes ->handling missing values , 
+        removing duplicate values,
+        correcting inconsisitent formats ,
+        converting data types,
+        transforming existing columns, 
+        creating new columns from existing data . 
+        identifying & handling outliers
+
+
+DC                                                  |                                       DP
+
+focus of identifying & correcting data                          prepares data for analysis / machiine learnig
+quality probably / problems                                    
+
+improvev data accuracy & data consistency                       makes data suitable for the intended analysis
+
+
+Data quality -> discuss how suitable your data is for its intended purpose(a dataset with good quality should be sufficently complete,consistent,accurate,valid and free from unintended duplication)
+
+common problems in data
+
+* missing values -> occurs when missong info is unavailable in your partiduclar field row data (fill the missing value woth appropriate previous values,or do some math,statistics,probabailty)
+
+* duplicate records -> occurs when the same business event/ entity recoreded more than once
+
+* inconsistent data -> same data in different formats(chennai,Chennai,CHENNAI) -> standardaized capitalization(soln.. either lowercase /uppercase of every record )
+
+* incorrect data types -> determine the kind of value store in a columns(instead of adding performs concatenate operation "300" + "300")
+
+* outliers -> it is a value that is unusally far from most other values in a dataset
+
+* invalid values -> do no satisfy expected rules for a field(Keyboard,mouse,laptop->2,-3,6)
+
+
+What are missing values in pandas? -> functions to identify , count , fill, to remove missing values
+
+Common functions of pandas
+
+* is null()                 ->      identify misising values
+* isna()                    ->      another name to identify missing values
+* sum()                     ->      counts missing values when applied to the boolean results
+* dropna()                  ->      it removes rows or columns contains missing values
+* fillna()                  ->      it replaces missing values with specified values
+* median()                  ->      it helps us to calculate the middle value of a numeric column
+* mean()                    ->      calculate the average of a numeric column
+
+
+when should we use each method ? 
+
+missing values has known justified default -> fill with the value
+numeric value needs a simple statistical estimate -> consider mean or median
+missing values makes the record unstable -> consider removing the record itself
+missingness itself is importanta -> retain it or create a misising value indicator
+
+
+what we should do when Duplicate records
+
+
+ex: calculate revenue from quantity to price
+standalone text value
+converting datas
+create categories from, numeric values
+
+
+feature ENGINERRING
+means creating new cloumn called features from existing data to support analysis / ML
+df["unitPrice"].describe()
+
+identify & handle outliers(500,600,800,8080000) the value of sudden hike in the column known as outliers
+
+identify potential outliers using dqr method interquatile range.. DQR = Q3 - Q1
+Q1 = df["unitprice"].quantile(0.25)
+Q3 = df["unitprice"].quantile(0.75)
+
+IQR = Q3 - Q1 
+Lowerboundary = Q1 - 1.5 * IQR
+upperBoundary = Q3 + 1.5 * IQR
+
+500 , 50000000
+
+load data -> insepect data -> identify problems -> clean data -> transforming data => vailadating result
+
+df.info->datatypes and missing values()
+df.describe()->statistical data
+df.columns -> list columns names
+df.Duplicated(),sum()
+df["product"] = df["product"].str.strip().str.title()
+
+
+Review:
+* inspect data              head()                  view he first 5 rows
+
+* check dimensions          shape                   count rows 2 columns
+
+* check datatypes           info()                  understand column types
+
+* identify missing
+    values                  isnull().sum()          count missing values
+
+* handle missing            fullna()                apply a selected strategy
+    values
+
+* identify 
+  duplicates                duplicated()            find repeated rows
+
+* remove duplicates         drop_duplicates()       remove confimed duplicates
+
+* standardaized text        str.strip(),str.title() normalize text formatting
+
+* convert data              pd.to_datetime()        conver text to date & time
+
+* convert numeric values    pd.to_numeric()         convert values to numeric types
+
+* identify outliers         IQR method              Flag unused numeric values
+
+* visualize  outliers       plot(kind="box")        inspect the price distributions
+
+* create revenue            column calculate        derive revenue from quality & price
+
+* create a feature          apply()                 assign one categories
+
+* save results              to.csv()                export the cleanest dataset
+
+task 1 -> call median and one missing value with dropna() just with some 5 rows of data with missing and wants to clean
+task2 -> create a dataset which have some error on it with these heading * missing values -> occurs when missong info is unavailable in your partiduclar field row data (fill the missing value woth appropriate previous values,or do some math,statistics,probabailty)
+
+* duplicate records -> occurs when the same business event/ entity recoreded more than once
+
+* inconsistent data -> same data in different formats(chennai,Chennai,CHENNAI) -> standardaized capitalization(soln.. either lowercase /uppercase of every record )
+
+* incorrect data types -> determine the kind of value store in a columns(instead of adding performs concatenate operation "300" + "300")
+
+* outliers -> it is a value that is unusally far from most other values in a dataset
+
+
+
+minimum of 10 records and perform all these functions
+
+df.info->datatypes and missing values()
+df.describe()->statistical data
+df.columns -> list columns names
+df.Duplicated(),sum()
+df["product"] = df["product"].str.strip().str.title()
+df["OrderDate"] = pd.to_datetime(df["OrderDate"],errors="coerce")
+df[["OrderDate"]]
+coerce -> invalid data to NAT(time) NAN(numbers)
+df["orderDate"].dtype -> explaination for this us or ind .. some ouput will be there explain why is that op
+df(df.duplicated())
+df = df.drop_duplicates()
+df["quantity"] = pd.to_numeric(df["quantity"],errors = "coerce")
+outliers = df[(df["unitPrice"] < lower_limit) | (df["unitPrice"] > upperlimit)
+]
+df["revenue"] = df["quantity"] * df["unitPrice"]
+df[["revenue"]]
+
+
+* is null()                 ->      identify misising values
+* isna()                    ->      another name to identify missing values
+* sum()                     ->      counts missing values when applied to the boolean results
+* dropna()                  ->      it removes rows or columns contains missing values
+* fillna()                  ->      it replaces missing values with specified values
+* median()                  ->      it helps us to calculate the middle value of a numeric column
+* mean()                    ->      calculate the average of a numeric column
+create a function lets say its pricecategory where it check price of that unitprice and list them as high meduim low and unknown
+and apply them using .apply and call dy
+
+task 4 
+write code for these new task
+identify no of missing values on every column -> isnull sum
+duplicated orders
+duplicated orderids
+highest priced products
+highest available unitPrice 
+group revenue by city
+change the column as per the dataset it doesnt necessary to be exactly what u looks like
+cause and solution for the code that we execute
+
+if there are any outliers fix the with IQR and i want lower llimit upoer limit
+
+make suer u give the syntax of cmd while creating jira ticket because dataset varies for many of them  and give me one dataset for my use task1 and task2 ,, for task3 10 linux cmd not just basic something more of intermeditate but easy one,, the output should be paster in jira 
+

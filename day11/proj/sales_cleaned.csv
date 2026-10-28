@@ -1,0 +1,14 @@
+OrderID,Product,City,Quantity,UnitPrice,OrderDate,product,PriceCategory,Revenue
+O1001,Laptop,Chennai,2.0,50000,2026-10-01,Laptop,High,100000.0
+O1002,Mouse,Chennai,5.0,500,2026-10-02,Mouse,Low,2500.0
+O1003,Keyboard,Chennai,3.0,1200,2026-10-03,Keyboard,Medium,3600.0
+O1004,Monitor,Bengaluru,2.0,8500,2026-10-04,Monitor,Medium,17000.0
+O1005,Laptop,Chennai,3.0,52000,2026-10-05,Laptop,High,156000.0
+O1006,Mouse,Hyderabad,4.0,500,2026-10-06,Mouse,Low,2000.0
+O1007,Keyboard,Bengaluru,2.0,1200,2026-10-07,Keyboard,Medium,2400.0
+O1008,Monitor,Chennai,3.0,8500,2026-10-08,Monitor,Medium,25500.0
+O1010,Laptop,Hyderabad,2.0,50000,,Laptop,High,100000.0
+O1011,Headphones,Bengaluru,3.0,2500,2026-10-11,Headphones,Medium,7500.0
+O1012,Webcam,Unknown,4.0,1800,2026-10-12,Webcam,Medium,7200.0
+O1013,Desk,Chennai,1.0,999999,2026-10-13,Desk,High,999999.0
+O1014,Chair,Hyderabad,3.0,6500,2026-10-14,Chair,Medium,19500.0
