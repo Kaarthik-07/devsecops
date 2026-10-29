@@ -1,0 +1,114 @@
+df.head -> top 5 rows
+
+df.describe ->complete numeric values total it twill show, df["revenue"].describe() -> only describe numeric values
+
+df.isnan().sum()-> finds the missing values and how many
+
+mean,median -> as ususal
+
+df["product"].values_count() -> total count of each productt
+
+revenue_by_region = (df.groupby("Region")["revenue"].sum().sort_values(ascending=False)
+
+region_summary = (df.groupby("Region")
+                  .agg(Total_revenue=("Revenue","sum"),
+                  AverageOrderRevenue=("Revenue","mean"),
+                  OrderCount=("OrderId","count")
+                  ).sort_values("Total_revenue",ascending=False)
+)
+
+df.info->datatypes and missing values()
+
+df.describe()->statistical data
+
+df.columns -> list columns names
+
+df.Duplicated(),sum()
+
+df["product"] = df["product"].str.strip().str.title()
+
+df["OrderDate"] = pd.to_datetime(df["OrderDate"],errors="coerce")
+
+df[["OrderDate"]]
+
+coerce -> invalid data to NAT(time) NAN(numbers)
+
+df["orderDate"].dtype -> explaination for this us or ind .. some ouput will be there explain why is that op
+
+df(df.duplicated())
+
+df = df.drop_duplicates()
+
+df["quantity"] = pd.to_numeric(df["quantity"],errors = "coerce")
+
+outliers = df[(df["unitPrice"] < lower_limit) | (df["unitPrice"] > upperlimit)
+]
+
+df["revenue"] = df["quantity"] * df["unitPrice"]
+
+df[["revenue"]]
+
+numeric_columns = [
+"units","UnitPrice","DiscountPct","Revenue"]
+
+
+correaltion_table = df[numeric_columns].corr() -> pair wise correlation btw them
+
+correlation btw units and revenue
+
+units_revenue_correlation = df["units"].corr(df["revenue"])
+print("correlation btw units and revenue", units_revenue_correlation)
+
+per month data
+df["Month"] = df["Date"].dt_to_period("M").astype(str)
+
+creates one group per month
+
+monthly_revenue = (df.groupby("Month")["Revenue"].sum().sort_index())
+
+monthly_revenue.plot(kind="line",marker="o",title="Totoal revenue by month")
+plt.xlabel("Month")
+plt.ylabel("Revenue")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
+
+highest_revenue_orders = (
+    df.sort_values("Revenue",ascending=False)
+    [
+        [
+            everycolum
+        ]
+    ].head(5)
+)
+
+unique orders
+df["orderId"].nunique().len(df)
+
+df["Date"] = pd.to_datetime(df["Date"],errors="coerce")
+
+df["Date".isna().sum()]
+df.dtypes
+
+creating a new revenue column
+df["Revenue"] = ( df["Units"] * df["UnitPrice"] * (1-df["DiscountPct"])
+)
+
+df["product"].values_count() -> total count of each productt
+revenue_by_region = (df.groupby("Region")["revenue"].sum().sort_values(ascending=False)
+region_summary = (df.groupby("Region")
+                  .agg(Total_revenue=("Revenue","sum"),
+                  AverageOrderRevenue=("Revenue","mean"),
+                  OrderCount=("OrderId","count")
+                  ).sort_values("Total_revenue",ascending=False)
+)
+
+product_summary = (
+df.groupby("Product").agg(Total_revenue("Revenue","sum")
+
+)
+)
+
+monthly_summary = (
+df.groupby("Month").agg(Total_revenue("Revenue","sum")orders=("OrderId"),)
+)
