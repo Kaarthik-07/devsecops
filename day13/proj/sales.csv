@@ -1,0 +1,11 @@
+OrderId,Date,Product,Category,Region,Units,UnitPrice,DiscountPct
+ORD1001,2026-01-05,Wireless Mouse,Accessories,South,2,650.0,0.0
+ORD1002,2026-01-12,Mechanical Keyboard,Accessories,South,1,2400.0,0.05
+ORD1003,2026-02-03,USB-C Hub,Connectivity,West,3,1250.0,0.1
+ORD1004,2026-02-18,Monitor,Displays,North,1,8500.0,0.0
+ORD1005,2026-03-02,Wireless Mouse,Accessories,West,4,650.0,0.05
+ORD1006,2026-03-15,Laptop Stand,Accessories,South,2,1800.0,0.1
+ORD1007,2026-04-07,Monitor,Displays,East,2,8500.0,0.05
+ORD1008,2026-04-21,USB-C Hub,Connectivity,North,1,1250.0,0.0
+ORD1009,2026-05-11,Mechanical Keyboard,Accessories,East,2,2400.0,0.1
+ORD1010,2026-05-25,Laptop Stand,Accessories,West,3,1800.0,0.0

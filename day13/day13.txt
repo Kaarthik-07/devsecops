@@ -1,0 +1,137 @@
+Data analysis workflow -> is an ordered set of steps for turing data into evidence(giving a report given by them we cant decide the final ouput which will result in final faulty one,our responsible what they need nd how ur going to approach)
+
+Flow: business questions -> data understand -> prepare the data -> analyse the data -> interpretate -> communication -> action & review
+
+da wont ask questions based on customer side as because we only care aby what we need but on DA perspective its different
+
+How DA asks questions
+
+1. * clarify the business -> what the business neads to decide 
+* what question are we trying to answer
+* who will use the answer, 
+* what decision might the answer supprot, 
+* what time period,ccustomers , 
+* products  or region are in scope
+
+what mesure : revenue profilt orders unit cost or something does?
+
+2. understand the data -> what dataset we going to represent -> by caluclation anything, establish what the dataset represnts
+
+what one row represnts -> is it one order,one product, within on order, one customer,one day(either one or two we ll be selecting)
+
+what each column needs => confirm its definction unit & source
+
+what period is covered -> a few montths of data cant support long term decisison
+
+how measures are caluclated -> ex:revenue which is included(discounts,combo,shipping etc..)
+
+whthere the data is complete and suitable for the questions(like taxes,shipping charges etc...)
+
+3. Preparing the data
+checking and organizing the data so caluclations are meaningful
+
+4. Analyze the data -> chose caluclations that anser the business ,ex: if u r analusing total, clear that what ur calculating(like as region or per product etc.) while calcl total mostly do current quarter and last quarter
+
+Relationships => discounts, orders, shipping,sold
+
+5. interpretate the data -> for each qn ask these
+
+* what does the number or pattern say , 
+* how strong or large is the difference
+* what else could explain it?
+* is the data broad and reliable enough for this conclusions
+* what should we check next?
+
+6. communicate the result
+
+* the finding -> it tells us the what the analysis showed
+
+* the eveidence -> which calculcation / chart supports it
+
+* interpretation -> what might it when for the business
+
+* the limitation -> what cant be concluded from this data
+
+* the most question -> what should the team investigate
+
+business leads unusally needs the finding , its inpact, the recommended action and any risk
+
+an analysis may also need the calculcation, filters, assumptions, data - quality details 
+
+a team is responsible for the next steps, needs a clear owner  and timing and measure of success
+
+7.  Act and review
+
+recommendation should be testable
+what action will be taken
+who owns it
+when it will happen
+which measures will show whether it will work
+when the result will be reviiew
+
+interpretating  analysistical results: finding , interpretation, recommendation
+
+finding -> its going to tell what the analysis directly shows, ex: south region revenue comparetevely high
+
+interpretation -> what the finding may needs in the business context, ex: south contributes strongly on revenuebut the resuly may reflect more orders than higher value order(comparission) if south solds 1000 product dn generenared 9000 rupees but on north solds 500 product nd it generenared 7500,here we may think south have highest revenue comparetevely if we check north has higher value but on low products
+
+recommendation -> what action is reason to consider next
+
+df["product"].values_count() -> total count of each productt
+revenue_by_region = (df.groupby("Region")["revenue"].sum().sort_values(ascending=False)
+region_summary = (df.groupby("Region")
+                  .agg(Total_revenue=("Revenue","sum"),
+                  AverageOrderRevenue=("Revenue","mean"),
+                  OrderCount=("OrderId","count")
+                  ).sort_values("Total_revenue",ascending=False)
+)
+
+EDA mistakes
+
+* reporting a aveage withut checking the distribution
+* configuring order count / unit count:withina
+* comparint total wihtout understanding values
+* declaring a long term trend from a short sample
+* removing unusal values without checking them
+* using a chart without a question
+* presenting results without the calculcations
+
+communicating data = driven insights
+
+stakeholder needs to understand the main point before they have the techincal steps
+
+1. what questions did we investigate?
+2. what did we find?
+3. why might it matter to the business?
+4. what do we recommended doing next?
+5. what should we be greatful about
+
+Structure : 
+
+1. finally : observes result & the relevant time period
+2. evidence: give the support numbers,comparission/charts
+3. meaning: explain why it matters
+4. action: suffer a specific next step
+5. caveat: state what the data does not establish
+
+DA best praactices:
+
+* always starts with question and a decision
+* check the source & definction
+* protect the data(mandatory)
+* make calculcations repeateable -> bring clear names , add consistent filter, document the formulas
+* validate the results
+* handle unusual values with care-> flag all the unusual records, investigate the source and consisucens notes(like sticky notes)
+* keep your work understandable->prepart charts kinda like that
+* focus on useful measures
+
+Story Telling
+combine data , explanation, business merge
+
+Structure: 
+1. context: what business Structure / question led ti the analysis
+2. Finding: what did the dark show?
+3. evidence: what no/visuals support the finding?
+4. meaning: why should the audience core?
+5. Action: what next step should we consider
+6. caveat: what dies the analysis not prove?
