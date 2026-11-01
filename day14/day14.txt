@@ -1,0 +1,76 @@
+Streaming & data warehousing(snowflake architecture & data warehousing fudamentals)
+
+Data warehousing: centralized system that stores data collected from different other sources, so that organizations can analyze their business performance accordingly and they make decisions
+
+business generated data from mulitple applications and systemsaA
+
+* centralized data -> different system together
+* historical analysis -> store data for analysis over time
+* Reporting -> supports dashaboards and reports
+* business intelligenece -> helps identify trends / patterns
+* decisions making -> provides information for business decisions
+
+flow : from source system(s3,rds) -> data ingestions(bringingi data source into another system) -> data warehouses(store data in a structured format) -> analytics & reports->use sql dasboards/reporting tools to analyze the stored data
+
+
+OLTP                                           |                             OLAP
+
+online transaction processing                                   online analytical processing(large amoutn of data) -> no indvidual
+day to day processing                                           supports complex queries used to analyze business data
+
+used for analysing or processing indvidual                      ex:calucates total sales across all sales   , identify the top 10 customers,compare this yr performance with last yr
+
+transactions accurately or efficently
+
+SNOWFLAKE: cloud-based platform -> used for data storage, data processing , analytics, and use it for other data workloads
+
+* it supports SQL through this way also we can understation relation db's
+
+* in org -> inorder to store structured and semi structured data
+* run analytical SQL queries
+* load data from files and external systems
+* process large datasets
+* supports reporting aswell as business intelligenece
+* seperate analytical compute resources from data storage
+
+snowflake 3 main architectural layers
+1. Database storage -> stroage layer holds the data stored in snowflake table
+
+2. Query processing -> goin to handle virtual warehouse(provide compute resources for running your SQL queries and performing supported data-processing operations)
+
+3. cloud services -> cloud services layer which is ogoing to co-ordinate and manage your important snowflake operations :-> it is responsible for auth,accses contol list,query parsing,optimization, meta data maangements,infra co-ordination ,transactions co-ordination
+
+users/APP -> cloud services(auth,query optimized,metadata) -> query processing(virtual warehouses compute resources) -> database storage(table,data)
+
+virtual compute resources:
+data warehouse -> overall system used to store and analyze business data
+snowflake virtual warehouse -> compute resources used to run queries and supportted workloads
+
+Database-> logical container for organizing our data and objects
+warehouse-> blueprint structured(RAW(stores data in ints intial ingestion form),analytics(cleaned and transformed data),Reporting(organize my objects for reporting mostly))
+
+user stages
+table stages,
+normal internal stages,
+external stages
+
+COPY INFO SALES FROM @RETAIL_STAGE FILE_FORMAT = (FORMAT_)
+
+Ingestoin
+
+BATCH -> data is collected and loaded in group at scheduled interbales / when a batch si ready
+ex: load yesteradatys sales through every nighy
+
+Streaming -> data is processed continusolus or small inccrement events of data arrive 
+ex: process payment events as they are genereated
+
+
+Tables:
+Facts-> stores mesaurable business events / transactions ,it also contains keys which connects it to related Dimensions tables
+ex: sales amounts,quantity solds,no of units
+
+Dimensions: stores descriptiive information used to anayze the facts
+ex: customer products stores
+
+snowflake upload after stages(data ingestiojn stages)
+identify the stage file -> read the files using specified CSV format -> skips the header row -> interprets the data fields -> maps the field to destination table columns -> loads the record into the table -> returns inormation about the loading operations -> 
