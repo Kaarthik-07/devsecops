@@ -1,0 +1,141 @@
+Architecture
+
+Business App -> source data -> snowflake stage(file stage) ->COPY into cmd (data loading) -> snowflake database -> Schema -> table -> stored data -> virtual warehouse(compute resource)
+-> SQL queries -> Business analysis
+
+The database,Schema,tables -> it will help us organize and store our data
+stage -> stage is going to hold the files before its getting loaded
+COPY into commands will loads the file data into tables
+the virtual warehouse provide compute resources for executing queires and for loading our data
+cloud services manage authentivation access control meta data & query coordination
+
+snowflake components
+1. Database: A logical conrainter for organizing data object(Sales,finance,HR,inventory) each department has seperate data
+as a company we might create seperate db to organize this info
+
+2. Schema: Logical container inside the database, one db can contain multiple Schemas
+* why do we need Schema -> Business may have different categories of data that needs to be organized seperately
+RAW -> sotres data int ints inital integrated form
+Analysis -> stores cleared & transformed data
+Reporting -> organized object use for reporting
+
+3. Table -> structred data is stored in rows & columns
+
+ex: our sales data needs to be stroed somewhere inside the databases, we crate a tabled called SALES , CREATE TABLE RETAIL_DB.RAW.SALES(ORDER_id, Number primary key etv...)
+
+Db->RETAIL_DB->schema->RAW->TABLE->SALES
+
+database -> organize related data objects
+
+schema-> organized object inside a databases
+
+Table-> stores the actual structred records
+
+
+4. virtual warehouse -> provide us with the concept resources execute SQL queries & perofmr supported data operations
+DB stores the data, virtual warehouse(VW) provides the computing powers do work with the data
+sales(10 million records)
+Read the required data -> calculate total revenue
+perform calculation 
+group records by product -> return the result
+
+VW provudes the compute resources to work
+one db -> more warehouse can share that db and also the warehouse can talk to each other
+
+
+5. Stage -> its the location used to hold data files before loading them into the snowflake tables
+
+we upload the file to stage temporary holding location
+
+stage -> 
+    internal -> 
+        user stage(Personal stage associated with snowfile use)
+        table stage -> stage associated with a particular table
+        name of internal stage -> stage created explicity as a database object
+    external stage -> references files stored outside snowflake(maybe amazon s3 bucket,azure blob storage,google GCS)
+
+
+Data ingestion :
+SNOWPIPE & STREAMING:
+1. Batch ingestion: retail company exports its sales data daily night
+sales app -> sales.csv -> stage -> copy inyo -> table
+
+2. snowpipe -> rather giving copy into everytime,,snowpipe can automatically uploaded the data
+
+snowpipe designed for continuous file - based ingestion
+
+3. snowpipe streaming -> retail applicated generates 1000s of invidual sales events, instead of waiting for your CSV file to be genereated . the app can send rows directly into snowflake table using snowpipe streaming
+
+snowpipe streaming does not required the traditional staged file workflow
+
+bulk loading -> COPY into
+if files are continuosly loaded then use snowpipe
+    if row level ingestion required -> snowpipe streaming
+
+
+component               what is it                      why do we need it
+
+Account                 snowflake env                   provides access to snowflake platform
+Role                    collection of permissons        control what users can do
+Database                Logical container               organize data objects
+Schema                  Container inside a database     organizes tables & other objects
+Table                   Rows & Columns                  stores structred records
+Virtual Warehouse       compute resources               execute quereis and data operations
+Stage                   file location                   holds file before loading
+file format             file_reading rules              defines how snowflake interprets files
+COPY INTO               SQL loadin commands             Loads staged data into tables
+VIEW                    saved sqked query               provides reuseable query results
+snowpipe                automated file ingestion        loads files as they arrives
+snowpipe streaming      row level ingestion             integreates streaming data directly into tables
+
+HOW
+1. access users get permissons to work -> account,user,role
+2. organize create a location for business data -> Database , schema will be there
+3. prepare define where data will be stored -> table
+4. ingest bering external data into snowflake -> stage file format COPY into 
+5. process execute queries & transformation -> virtual warehouse, SQL
+6. Analze generate business insights -> Table , views,SQL,BI tools
+
+Final Architecture -> snowflake account -> user + role (Access) -> database(RETAIL_DB) -> schema(RAW) -> Tables(Sales) -> COPY into -> STAGE(Retail_stage) -> file formate(Sales.csv)
+-> virtual warehouse(Retail_WH) -> SQL queries -> Business analysis
+
+1. create a VPC(10.0.0.0/16) -> 65k ip
+2. create 2 subnets: public(10.0.10.0/24)
+                        private(10.0.20.0/24)
+create 2 subnet and attach it to the vpc
+route tables for public and private ip to connect to
+
+pub rt  -> edit -> add -> 0.0.0.0/0 (target->internet gaetway )
+subnet associat -> edit SA ->  rout-> pub sub-> save
+NAT -> network address translator(staitc ip):elastic ip
+
+creat nat gaetway (connetionnsecure setup) zonal,pub sub,piblic, elstic ip
+same do that for private
+
+subnet associations -> edit SA -> pvt subnet
+
+security grps -> it is a place whos allowed nd what they can do
+
+2 securty groups we have to create for public and private
+linux , ssh , http,https
+SSH alone my ip other prorot any any
+
+select pvt sg all tcp and the source as public subnet sg(security group)
+
+create 2 ec2 instance -> home page, name,os,instance tpye, keypair, 
+in network -> vpc, pubdub(enable),oublic ip,pub sg
+
+login page,name,os,instanec type,keypai,storage,vpc,ovtsub,dsable public ip , pvt sg
+
+from AWS extra ip's -> 
+10.0.10.0 1st ip-> network address
+10.0.10.255 -> network broadcast address
+10.0.10.1 -> aws default gaetway
+10.0.10.2 -> mapping dns ip
+10.0.10.3 -> vnet space
+
+deleteion process
+* ec2 instance
+* NAT gateway
+* elastic ip delete
+* delete VPC first then u can delete if any errpr

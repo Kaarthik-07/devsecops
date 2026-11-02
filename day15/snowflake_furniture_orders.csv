@@ -1,0 +1,11 @@
+ORDER_ID,ORDER_DATE,CUSTOMER_NAME,PRODUCT,CATEGORY,QUANTITY,UNIT_PRICE,CITY,PAYMENT_METHOD
+ORD2001,2026-10-01,Asha,Office Chair,Furniture,2,4500,Chennai,UPI
+ORD2002,2026-10-02,Rahul,Desk Lamp,Lighting,3,1200,Bengaluru,Card
+ORD2003,2026-10-03,Meera,Bookshelf,Furniture,1,6200,Hyderabad,NetBanking
+ORD2004,2026-10-04,Arjun,LED Bulb,Lighting,10,180,Chennai,UPI
+ORD2005,2026-10-05,Divya,Study Table,Furniture,1,7800,Coimbatore,Card
+ORD2006,2026-10-06,Kiran,Floor Lamp,Lighting,2,2400,Bengaluru,UPI
+ORD2007,2026-10-07,Nila,Wall Shelf,Furniture,4,950,Hyderabad,Cash
+ORD2008,2026-10-08,Vikram,Ceiling Light,Lighting,2,3100,Chennai,Card
+ORD2009,2026-10-09,Priya,Dining Table,Furniture,1,12500,Madurai,NetBanking
+ORD2010,2026-10-10,Sanjay,Night Lamp,Lighting,5,650,Coimbatore,UPI
