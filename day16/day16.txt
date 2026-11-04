@@ -1,0 +1,110 @@
+DB: RETAIL_DB
+Schema: RAW
+Warehouse: RETAIL_WH
+TABLE: SALES
+FILE_FORMAT: RETAIL_CSV_FORMAT
+STAGE: RETAIL_STAGE
+
+Data loading:
+-> process of bringing data from external source into your snowflake  , so that we can query and analyze it
+multiple file formats: csv,json,db's all external storages(s3,blob storage)
+
+Techniques:
+1. bulk loading :-> load multiple records from files into your snowflake tables
+
+2. snowpipe-> automatic loads the file when they arrivev in a configured cloud storage location
+
+3. snowpipe streaming -> row leve ingestion continusoly as the data arrives , its like without the traditional stage file process
+
+4. Insert :-> insert individual records or set of records using SQL 
+
+5. COPY INTO :-> loads the data into traditional way : snowflake stage into a table
+
+Data transformations:-> converting data from its original format to a format that is more  useful for reporting / analysis
+
+commonn SQL data transformations function
+
+1. TRIM() -> remove unnecessary spaces: select TRIM(customer_name) from customers;
+2. UPPER() -> convert text into uppercase: select UPPER(customer_type) from customers;
+3. COALESCE()-> removing or replacing the missing values: select customer_id,COALESCE(customer_name,'unknown') as customer_name from customers;
+4. CAST() -> convert one data type into another: select CAST(order_id as varchar) as order_refrence from orders;
+5. CASE() -> apply conditional logic : 
+                                                    select customer_id,CASE 
+                                                        when customer_type = 'PREMIUM' THEN 'HIGH VALUE'
+                                                        when customer_type = 'REGULAR' THEN 'STANDARd'
+                                                        ELSE 'OTHER'
+                                                    from customers;
+
+Transformation query: we can combine this functions to prepare a clean datasets
+
+select customer_id, COALESCE(TRIM(customer_name),'unknown') as customer_name, UPPER(city) as city, UPPER(customer_type) as customer_type from customers;
+
+where do we store transformed data?
+
+common approach CTAS(create table as select) -> the cleaned or transformed data will be stored here
+
+CREATE TABLE RETAIL_DB.RAW.CLEAN_CUSTOMERS AS 
+select customer_id, COALESCE(TRIM(customer_name),'unknown') as customer_name, UPPER(city) as city, UPPER(customer_type) as customer_type from customers
+FROM RETAIL_DB.RAW.CUSTOMERS;
+
+customers -> original table
+CLEAN_CUSTOMERS -> transformed clean table
+
+SQL query optimization: 
+* increase or improving the SQL query so that snowflake can retrive and process data efficently
+
+Techniques for better query optimization:
+1. avoid select (*) instead select with column names -> it request only the required columns which reduces unnecessary data processing 
+it makes the query easier to understand, it can reduce the amount of data scanned and returned
+
+2. use where to filter your data
+
+snowflake micro partion pruning : -> automatically store table data in small storage units called micro partion(it will hold all the metadata of all your query in these partion)
+when a query has a suitable fitler conditiona now snowflake can skip this micro partion that cannot contain matching records
+
+3. use efficent data filtering:  select * from orders where year(order_date) = 2026;
+
+select order_id, product , order_date from orders where order order_date >= '2026-01-01' and order_date <= '2026-06-30'
+
+4. Optimize JOIN operations -> combine 2 ore more table  using a common column
+
+5. use Aggregations: -> emans calculation summary info form multiple records
+
+select product, sum(quantity) as total from orders group by product;
+
+performance tuning -> process of identift 
+
+several factors:
+1. amoutn of data being scanned
+2. query complexity
+3. numer & type of join operations
+4. Warehouse size
+5. Warehouse availability & workload
+6. data distribution & micro partion pruning
+7. query execution plan
+
+query profile"
+execution time -> data scanned
+partion scanned -> partion total
+join operations -> aggrations operations 
+query execution steps
+
+virtual Warehouse size
+x-small small workload 
+small - light workload
+medifum - moderate workload
+large - heavier workload
+x-large complex larger workloads
+
+best practices for efficent query execution:
+
+avoid select * -< retrive only required colums
+apply where filter -> avoid processing unnecessary records
+use date ranges => prefer durect data trange conditionas for date filtering
+avoid unnecessary joins -> join only the table required for analysis
+use appropriate join condiions -> march records using the corrected columns
+filter before Aggregations -> reduce the records being processed
+avoud unnecessary transformations -> do not apply functions to filter columns without a reason
+Monitor query profile -> understand where execution time and scanning occurs
+choose the right Warehouse size -> avoid using understand large Warehouse
+suspend unused Warehouse -> prevent unnecessary credit consumption
