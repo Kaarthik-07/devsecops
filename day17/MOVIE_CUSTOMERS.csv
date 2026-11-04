@@ -1,0 +1,25 @@
+CUSTOMER_ID,CUSTOMER_NAME,CUSTOMER_TYPE,CITY,PREFERRED_CHANNEL,EMAIL
+M301,Aditi Rao,Regular,Chennai,Mobile,aditi.r@example.com
+M302,Kabir Shah,Premium,Mumbai,Web,kabir.s@example.com
+M303,Mira Nair,Student,Bengaluru,Mobile,mira.n@example.com
+M304,Rohan Mehta,Regular,Pune,Web,rohan.m@example.com
+M305,Sara Khan,Premium,Hyderabad,Mobile,sara.k@example.com
+M306,Ishaan Das,Student,Kolkata,Mobile,ishaan.d@example.com
+M307,Diya Menon,Regular,Chennai,Web,diya.m@example.com
+M308,Neil Joseph,,Kochi,Mobile,neil.j@example.com
+M309,Zara Ali,Premium,Jaipur,Web,zara.a@example.com
+M310,Arnav Patel,Student,Ahmedabad,Mobile,arnav.p@example.com
+M311,Tara Bose,Regular,Bengaluru,Web,tara.b@example.com
+M312,Dev Iyer,Premium,Chennai,Mobile,dev.i@example.com
+M313,Anaya Roy,   ,Lucknow,Web,anaya.r@example.com
+M314,Vikram Sen,Student,Delhi,Mobile,vikram.s@example.com
+M315,Pia Thomas,Regular,Kochi,Web,pia.t@example.com
+M316,Omar Sheikh,Premium,Mumbai,Mobile,omar.s@example.com
+M317,Nisha Kapoor,Student,Pune,Web,nisha.k@example.com
+M318,Adil Fernandes,Regular,Goa,Mobile,adil.f@example.com
+M319,Rhea Kulkarni,Premium,Nagpur,Web,rhea.k@example.com
+M320,Karan Gill,Student,Chandigarh,Mobile,karan.g@example.com
+M321,Meera Pillai,Regular,Chennai,Web,meera.p@example.com
+M322,Yusuf Khan,Premium,Hyderabad,Mobile,yusuf.k@example.com
+M323,Sana Dutta,Student,Kolkata,Web,sana.d@example.com
+M324,Aarav Sethi,Regular,Jaipur,Mobile,aarav.s@example.com

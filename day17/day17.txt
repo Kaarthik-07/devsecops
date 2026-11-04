@@ -1,0 +1,144 @@
+CREATE TABLE IF NOT EXISTS RETAIL_DB.RAW.CUSTOMERS()
+
+
+COPY INTO RETAIL_DB.RAW.ORDERS
+FROM @RETAIL_DB.RAW.TRAINING_STAGE
+FILES =('orders.csv')
+FILE_FORMAT=(
+    FORMAT_NAME = 'RETAIL_DB.RAW.TRAINING_CSV_FORMAT'
+);
+
+select customer_id,coalesce(TRIM(customer_name),'unkown') as customer_name,
+upper 
+display all your orders
+display orders on specific loc
+calculate total sales or revenye
+calculate product wise sales
+join order and customers
+find total sales by customer type
+
+
+select o.order_id,c.customer_name,c.customer_type,o.product,o.quantity,o.unit_price,o.quantity * o.unit_price as total_amount from RETAIL_DB.RAW.orders o join RETAIL_DB.RAW.clean)customers c on o.customer_id = c.customer_id;
+
+deletion steps
+
+alter warehouse retail_wh suspend;
+
+delete all the tables
+stage
+fileformat
+warehouse
+drop table if EXISTS 
+
+troubleshooting 
+problems                                        possible reason                                             solution
+
+table does not exists                           incorrect databse or schema                             check the fully qualified table name
+stage does not exists                           stage creation failed or wrong schema selected          run 'show stages' in schema or entire db
+file not found                                  csv was not uploaded or filename differs                run 'list @RETAIL_DB.RAW.TRAINING_STAGE'
+COPY INTO loads zero rows                       file was already loaded or the file contents no data    check copy result and the table record count
+invalid data type                               csv values do not match table column types              check the csv & table definitions
+warehouse is suspended                          warehouse is not currently running                      check warehouse settings and auto resume
+insufficent priviledges                         current role lacks the required permissions             check the active roles & its grants(permissions)
+query runs slowly                               execsive scanning or complex operations or
+                                                insufficent compute                                     inspect query profile 
+
+power bi : -> buisness intelligence tool used to correct ,transfor, analyze and visaulize busineess data
+like: exxcel spreadsheet , sql db, csv files, cloud databases,busienss app, data warehouse
+
+through powebu we connects to diff sources and helps connect raw data into meaningfull business information
+
+power bi converts business data into interactive reports and visaulizations so that it helps our organizations to make decisions
+
+important components of power bi
+
+powebi desktop -> application used to connect data , transform it, create relationships, and build repors
+powerbi service -> cloud based platform used to publish manage and share reports
+powerbi mobile -> mobile apllication used to access reports and dashboards 
+power query -> important tool clean and transform our raw data
+power BI semantic model -> structural data modal which contains tables, relationships and calculations
+
+how they work together:
+-> connect to data using power bi desktop 
+-> clean the data using power query 
+-> create relationships between tables
+-> build a semantic model
+-> create reports and visaulizations
+-> publish report to powebi service whenever its required
+
+AWS Quicksight:
+ AWS cloud based bi service -> wich provides capabliltes simlar to power bi
+ connects to business data, analayse informations and create interactive dashboards
+
+ data transformation -> power query
+ powerbi using semantic model
+
+ connect to data sources:
+ -> a data source is the location from which an application retrieves information
+ -> powerbi cloes not need all business information to be stored inside powerbi itself
+
+ it can connect to external sources and retrieve the only required information
+
+ common data sources:
+ 
+ exxcel : customer recoreds stored in excel format
+ csv : mostly all the sales transaction store in csv files
+ sql server: custoimer and order databases
+ my sql : app databases
+ postgres : business application databases
+ amazon redshift -> cloud leve data warehouse
+ amazon s3 -> files store in your cloud storage
+ azure sql db -> ckoud based relational db
+
+ two important data connection modes
+
+ Import mode                                                DirectQuery mode
+ copies data from the source into its 
+ internal data model                                        power bi does not import the enntire dataset into its internal storage
+                                                            instead it send queries to the underlying data source when user interacts with reports
+
+data modelling:
+this is a process of organizing data from different tables and defining how those tables are connected
+
+it helps powerbi understand how different business datasets are related
+
+semantic model -> structured represantations of business data used bu power bi for reporting and analysis
+
+tables , columns, relationships,measures,calculations, data types
+
+fact table 
+
+star scehma : data modelling struture where one central fact table connects to multiple dimensions tables
+
+relationships -> defines how 2 tables are connected using a common column
+
+
+power bi supports 4 primary cardinality types
+
+1 to 1 : one record in one table is associated with one record in another table: one empoloyee one,
+1 to many: one record in one table can be associated with multple reords in another table, ex:one customer can make multiple purchase
+many to one: reverse perspective of 1 to many
+many to many: multiple records in 1 table can be associated with multiple records in another table, on stud can register mulyiple course , many course can be assigned to one student
+ctoss filter directions: determine how filters travel between connceted tables 
+
+
+
+SINGLE DIRECTIONS                                                                   BOTH DIRECTIONS
+filtered flow in one directions,generallly from the dimensions table to             filters can traveld in both directions between connceted tables
+fact table
+
+
+data transformation using power query -> is a data preptaiond and transformation tool availabe with in the powerbi helps clean and organize the data before loading tinto the semantic model
+
+
+commom power qyery transformations
+1. remove duplicates
+2. remoe rows
+3. replace values
+4. change data types
+5. rename columns
+6, remove columns
+7. time
+8. add custom columns
+
+ETL : poweby query also heps undersnad the ETL (extract transform load) process -> retureces data from different sources , clean & prereate the data, load the prepare data into the opowerbi semantic model
