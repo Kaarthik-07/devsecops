@@ -1,0 +1,16 @@
+BOOKING_ID,BOOKING_DATE,MOVIE_TITLE,GENRE,CITY,CUSTOMER_ID,CUSTOMER_NAME,CUSTOMER_TYPE,TICKET_QUANTITY,TICKET_PRICE,BOOKING_FEE,DISCOUNT,PAYMENT_METHOD,BOOKING_CHANNEL,REVENUE
+1001,2026-01-05,Galaxy Warriors,Action,Chennai,C001,Aarav Sharma,New,3,220,20,30,UPI,App,650
+1002,2026-01-18,The Last Kingdom,Drama,Bengaluru,C002,Diya Nair,New,2,180,15,0,Card,Online,375
+1003,2026-02-03,Ocean Secrets,Adventure,Mumbai,C003,Rohan Mehta,Returning,4,200,25,40,UPI,Online,785
+1004,2026-02-14,Laugh Out Loud,Comedy,Chennai,C004,Meera Iyer,New,2,160,15,10,Cash,Counter,325
+1005,2026-02-26,Shadow Protocol,Thriller,Hyderabad,C005,Kabir Rao,Returning,3,210,20,20,Card,App,630
+1006,2026-03-07,Galaxy Warriors,Action,Pune,C006,Ananya Das,New,5,230,30,50,UPI,App,1130
+1007,2026-03-19,The Last Kingdom,Drama,Mumbai,C007,Ishaan Kapoor,Returning,2,190,15,0,Card,Online,395
+1008,2026-03-29,Neon Dreams,Sci-Fi,Bengaluru,C008,Sara Thomas,New,3,240,25,25,UPI,App,720
+1009,2026-04-04,Ocean Secrets,Adventure,Chennai,C001,Aarav Sharma,Returning,2,210,15,15,Card,Online,420
+1010,2026-04-16,Laugh Out Loud,Comedy,Hyderabad,C009,Vivaan Patel,New,4,170,25,30,Cash,Counter,675
+1011,2026-04-27,Shadow Protocol,Thriller,Pune,C010,Tara Menon,New,3,220,20,20,UPI,App,660
+1012,2026-05-08,Neon Dreams,Sci-Fi,Mumbai,C003,Rohan Mehta,Returning,4,250,30,50,Card,Online,980
+1013,2026-05-20,Galaxy Warriors,Action,Bengaluru,C006,Ananya Das,Returning,2,240,15,10,UPI,App,485
+1014,2026-06-02,The Last Kingdom,Drama,Chennai,C002,Diya Nair,Returning,3,200,20,20,Card,Online,600
+1015,2026-06-21,Ocean Secrets,Adventure,Hyderabad,C009,Vivaan Patel,Returning,5,220,35,60,UPI,App,1075

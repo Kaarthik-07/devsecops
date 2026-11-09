@@ -142,3 +142,20 @@ commom power qyery transformations
 8. add custom columns
 
 ETL : poweby query also heps undersnad the ETL (extract transform load) process -> retureces data from different sources , clean & prereate the data, load the prepare data into the opowerbi semantic model
+
+power bi store a copy instside its semantic model, 
+less dependedcy on snowfloak for every vusula intraction(small/medium/sized datasets) , then imporoving entire dataset into its internal storage, data remain in snowfloak, large size data sets can prevents access to record sames data, "cache"
+
+designing business dashboards
+
+visual represntation of important business information, it display metrics, trends,and perfomrance indicatiors in one place
+
+why? monitor business perfomrance
+trak important busines  KPI's
+identify sales trends 
+compare performacce across regions
+identify underperforming products
+support business descisions
+
+KPI -> key perfomrance indicators
+is a measurable value used to evealuate how successfully an organizations is acheiving a particular busienss objective
