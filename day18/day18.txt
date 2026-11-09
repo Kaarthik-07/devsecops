@@ -1,0 +1,85 @@
+power bi(dashboard) <-> snowflake(storing data)
+
+connect power bi to a snowflake warehouse
+understand how power bi retrieves data from snowflake
+identify appropriate KPI for this business reoprting
+select suitable visualization for different business requiremnets
+create intractive dashboards using charts , tables & KPI cards
+implement filter and slicers 
+configure drill-down functionality
+apply basic dashboard design principles
+build business reports using snowflake data
+
+WORKFLOW
+snowflake -> data warehouse -> power bi desktop -> data connection -> data import --> data modelling -> dashboard design -> filters/slicers -> business reports
+
+Responsible for each platform
+
+1. snowflake -> store adn process your business data
+2. power bi -> connects to data and creates reports
+3. power query -> clean & transofrm retrieved data
+4. powerbi semantic model -> organizes data for reporting
+5. power bi visualization -> presents business information graphically
+
+how does the connection works;
+1. snowflake account -> identifies the snowflake environment
+2. snowflake warehouse -> provides compute resources for executing your queries
+3. snowflake database -> contains business datasets
+4. schema -> organizes tables / views
+5. tables -> stores our business records
+6. snowflake role -> determines what data and resources an user can access
+7. powerbi connector -> establish communication btw powerbi and snowflake
+
+1. server URL
+snowflake account address
+2. authentication:powerbi needs valid authentication credentials to access snowflake
+3. authenication methods depends on the organizational(microsft entra id, OAuth,key-pair auth) snowflake configurations
+
+types of business dashboards:
+1. execute dashboards: senior mangement,displays high level 
+2. sales dashboard (sales team)-> displays : sales by region,monthly sales, top selling product, sales representaion performance, revenue trends
+3. customer dashboard -> customer analysis : total customer,new customer, customer , customer purchase pattern
+4. financial dashboard -> finance team revenue, expenses,profit, montly financial performace, budget comparisions
+
+visual selection best practices
+1. card visual -> displays a single important numerical values, want to highlight one important business
+2. bar chart -> compares values across different categories helps management wichh product generates the higher revenue
+sales by product -> orders by category 
+revenue by city -> top 10 customers
+3. column chart -> displays comparision using vertical using vertical bars
+it helps compare values across categories / time periods
+4. line chart -> display trends over time ,it helps understand whether revenue is increasing or decresing
+monthly revenue -> quaterly performace -> daily sales, -> customer growtha
+5. pie chart / donut chart -> displays how different categories contrinbutes on total, use it when you wnat to understand the proportion of a total
+avoid using pie chats when there are too many categories
+6. table visual -> detailed rows and columns use tables when users need exact values rather than summarized visual information
+7. Map visual -> display geographical information, it helps management sales distribution across different geographical locations, map visual availbilty and rendering can depends on organizational setting and power bi configurations
+
+intractive filters and slices and drill - down -> users can ineract unit reports
+
+visual level filter -> applies to one specific visual
+page level filter -> applies to all visuals on one report page
+report level filter -> applies across all pages in the report
+
+slicers -> visual filter that allows users to interactively select values
+
+drill-down: allows users to move from summarized information to more detalied information within the sames machine/visual
+visual
+
+report design principles:
+1. kepp the dashboard simple : avoid adding too many charts, colors, unnecessary information, EOD dashboard should focus only on the most important busiess metrics
+2. use appropriate visualization: select charts based on business requirement, do not sleect a char simplu becoa it looks attractive
+3. Main consisten format, fonts, chart titles, number fomrats, spacing, alignment, color usage
+4. highlight important KPI -> most important metrics at the top of the dashboard
+5. avoid information overload -> only include information that helps answer the business question
+6. use appropriate titles -> avoid generic chart title like chart1 chart2 instead in should meaningful one somehting likes monthly revenue trend ,sales by region, revenue by category
+ line chart -> revenue changes over time 
+ bar chart ->
+
+ revenue by category
+ revenue by month
+ revenue by city
+
+
+
+ for each visual select the visuals , format visual, enable title, enter meaningful titel , adjust the font size, resize the visual, consistent formatting throughout the report
